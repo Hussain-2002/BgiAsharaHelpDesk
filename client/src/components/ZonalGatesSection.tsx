@@ -40,7 +40,7 @@ const gates: Gate[] = [
   },
   {
     name: "Taiyebi Zone",
-    description: "Entry point for Southern Region Jamaat",
+    description: "Taiyebi Zone Gate Access Point",
     details: [
       "Gate-1 : Chai Wala Makan Gate",
       "Gate-2 : Taiyebi Masjid Main Gate",
@@ -58,7 +58,7 @@ const gates: Gate[] = [
   },
   {
     name: "Ibrahimi Zone",
-    description: "Exclusive entry for high-level personnel",
+    description: "Ibrahimi Zone Gate Access Point",
     details: [
         "Gate-1: Ibrahim Pura Masjid Side Gate",
         "Gate-2: Ibrahim Pura Main Gate",
@@ -69,7 +69,7 @@ const gates: Gate[] = [
   },
   {
     name: "Muffadal Park",
-    description: "Quick-response entry for emergency services",
+    description: "Muffadal Park Gate Access Point",
     details: [
         "Gate-1: Taiyebi School(Quran Hall) Gate",
         "Gate-2: Taiyebi School(Auditorium) Gate",
