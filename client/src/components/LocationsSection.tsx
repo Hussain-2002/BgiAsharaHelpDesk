@@ -11,7 +11,7 @@ interface Location {
 
 const locations: Location[] = [
   {
-    id: "mazare-najmi",
+    id: "mazar-e-najmi",
     name: "Mazare Najmi (Central Zone)",
     description: "Central Zone administrative center",
     distance: "Central Location",
@@ -19,9 +19,9 @@ const locations: Location[] = [
     query: "Mazare Najmi, Ujjain, Madhya Pradesh, India"
   },
   {
-    id: "Zainny-Mohalla",
+    id: "Zainy-Mohalla",
     name: "Zainy Mohalla (Najmi Zone)",
-    description: "Recreation area and community gatherings",
+    description: "Rligious area and community gatherings",
     distance: "1.1 km from Central Zone",
     icon: "location_on",
     query: "Moiyyadi masjid - zaini mohalla, Ujjain (Dawoodi Bohra), 5QR7+CWC, Danigate, Ujjain, Madhya Pradesh 456006"

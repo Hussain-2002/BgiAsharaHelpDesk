@@ -5,7 +5,7 @@ const zoneLocations = [
     query: "NAJMI MATERNITY & NURSING, Madhya Pradesh",
   },
   {
-    name: "Hakimi Zone",
+    name: "Hakimi & Ibrahimi Zone",
     description: "Dedicated arrival checkpoint near Hasanji Badsha Roza.",
     query: "Hasanji badsha ujjain, Ujjain, Madhya Pradesh",
   },

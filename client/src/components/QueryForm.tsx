@@ -26,10 +26,12 @@ import { useMutation } from "@tanstack/react-query";
 const formSchema = z.object({
   itsNumber: z.string().min(1, "ITS Number is required"),
   name: z.string().min(1, "Name is required"),
-  email: z.string().optional(), // ✅ Removed .email() validation
+  email: z.string().optional(), // ✅ Email optional
   whatsappNumber: z.string().min(10, "Please enter a valid mobile number"),
-  jamaat: z.string().min(1, "Jamaat is required"),
-  category: z.enum(["Accommodation", "Relay Zone", "Transport", "Mawaid", "Others"], {
+  jamaat: z.enum(["Najmi", "Saifee", "Taiyebi", "Hakimi", "Ibrahimi","Muffadal Park" ,"Mehaman"], {
+    required_error: "Please select your Jamaat",
+  }),
+  category: z.enum(["Accommodation", "Relay Zone","Mawaid", "Others"], {
     required_error: "Please select a category",
   }),
   subject: z.string().min(1, "Subject is required"),
@@ -49,7 +51,7 @@ export default function QueryForm() {
       name: "",
       email: "",
       whatsappNumber: "",
-      jamaat: "",
+      jamaat: undefined,
       category: undefined,
       subject: "",
       description: "",
@@ -64,28 +66,23 @@ export default function QueryForm() {
       const formData = new FormData();
       formData.append("itsNumber", data.itsNumber);
       formData.append("name", data.name);
-      formData.append("email", data.email || ""); // optional fallback
+      formData.append("email", data.email || "");
       formData.append("whatsappNumber", data.whatsappNumber);
       formData.append("jamaat", data.jamaat);
       formData.append("category", data.category);
       formData.append("subject", data.subject);
       formData.append("description", data.description);
 
-      try {
-        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-          method: "POST",
-          body: formData,
-        });
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+      });
 
-        const result = await response.text();
-        if (result.includes("SUCCESS") || result.includes("success")) {
-          return { success: true, result };
-        } else {
-          throw new Error("Google Sheets submission failed");
-        }
-      } catch (error) {
-        console.error("Form submission error:", error);
-        throw error;
+      const result = await response.text();
+      if (result.toLowerCase().includes("success")) {
+        return { success: true, result };
+      } else {
+        throw new Error("Google Sheets submission failed");
       }
     },
     onSuccess: () => {
@@ -126,6 +123,7 @@ export default function QueryForm() {
       <div className="bg-gray-50 rounded-lg p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* ITS Number & Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
                 control={form.control}
@@ -155,13 +153,14 @@ export default function QueryForm() {
               />
             </div>
 
+            {/* Email & WhatsApp */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel> {/* 🟢 updated label */}
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input type="email" placeholder="example@gmail.com" {...field} />
                     </FormControl>
@@ -194,6 +193,7 @@ export default function QueryForm() {
               />
             </div>
 
+            {/* Jamaat & Category */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
                 control={form.control}
@@ -201,13 +201,27 @@ export default function QueryForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Jamaat *</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter your Jamaat name" {...field} />
-                    </FormControl>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your Jamaat" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Najmi">Najmi</SelectItem>
+                        <SelectItem value="Saifee">Saifee</SelectItem>
+                        <SelectItem value="Taiyebi">Taiyebi</SelectItem>
+                        <SelectItem value="Hakimi">Hakimi</SelectItem>
+                        <SelectItem value="Ibrahimi">Ibrahimi</SelectItem>
+                        <SelectItem value="Muffadal Park">Muffadal Park</SelectItem>
+                        <SelectItem value="Mehaman">Mehaman</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name="category"
@@ -233,6 +247,7 @@ export default function QueryForm() {
               />
             </div>
 
+            {/* Subject */}
             <FormField
               control={form.control}
               name="subject"
@@ -247,6 +262,7 @@ export default function QueryForm() {
               )}
             />
 
+            {/* Description */}
             <FormField
               control={form.control}
               name="description"
@@ -265,6 +281,7 @@ export default function QueryForm() {
               )}
             />
 
+            {/* Submit Button */}
             <div className="flex justify-center">
               <Button type="submit" disabled={isSubmitting} className="px-6 py-3">
                 {isSubmitting ? (

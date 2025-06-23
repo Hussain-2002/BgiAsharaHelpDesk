@@ -4,23 +4,23 @@ import { openWhatsApp, openEmail } from "@/lib/utils";
 // ✅ Grouped by Zone
 const zoneContacts = {
   "Najmi Zone": [
-    { name: "A.G.L Taha Tanki wala", number: "+91-8109066529" },
-    { name: "A.G.L Taher Khandwa wala", number: "+91-9644483860" },
+    { name: "Taha Tanki wala", number: "+91-8109066529" },
+    { name: "Taher Khandwa wala", number: "+91-9644483860" },
   ],
   "Zainny Mohallah": [
-    { name: "G.M Adnan bhai aden", number: "+91-7773862508" },
+    { name: "Adnan bhai aden", number: "+91-7773862508" },
   ],
   "Saifee Zone": [
-    { name: "A.G.L Adnan bhai lashker", number: "+91-7869782551" },
+    { name: "Adnan bhai lashker", number: "+91-7869782551" },
   ],
   "Taiyebi Zone": [
     { name: "Muffadal Siya wala", number: "+91-9244074130" },
   ],
   "Hakimi Zone": [
-    { name: "A.G.L Huzefa Saifee", number: "+91-9329578478" },
+    { name: "Huzefa Saifee", number: "+91-9329578478" },
   ],
   "Ibrahim Zone": [
-    { name: "A.G.L Shabbir Mewa wala", number: "+91-9826052057" },
+    { name: "Shabbir Mewa wala", number: "+91-9826052057" },
   ],
   "Muffadal Park": [
     { name: "Murtaza Motagam wala", number: "+91-7611105253" },

@@ -2,13 +2,13 @@ import { openGoogleMaps } from "@/lib/utils";
 
 const ziyaratLocations = [
   {
-    name: "Mazaar-e-Najmi",
+    name: "Mazar-e-Najmi",
     distance: "Central Zone, Ujjain",
     icon: "location_on",
     query: "Mazaar-e-Najmi, Ujjain",
   },
   {
-    name: "Hasanji Badsha",
+    name: "Hasanji Badshah AQ",
     distance: "1.2 km from Central Zone",
     icon: "location_on",
     query: "Hasanji Badsha, Ujjain",
