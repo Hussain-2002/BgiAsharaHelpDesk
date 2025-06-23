@@ -91,14 +91,6 @@ const locations: Location[] = [
     query: "Dawoodi Bohra Kabristaan, Madhya Pradesh, India"
   },
   {
-    id: "zainny-mohallah",
-    name: "Zainny Mohallah",
-    description: "Main entrance to Zainny Mohallah",
-    distance: "1.2 km from Central Zone",
-    icon: "location_on",
-    query: "Zainny Mohallah Gate, Ujjain, Madhya Pradesh, India"
-  },
-  {
     id: "Ujjain Railway Station",
     name: "Ujjain Railway Station",
     description: "Main railway station serving Ujjain",
