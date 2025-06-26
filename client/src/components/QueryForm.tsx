@@ -116,7 +116,7 @@ export default function QueryForm() {
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Submit Your Query</h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Have a question or need assistance? Fill out the form below and our support team will get back to you as soon as possible.
+         Have a question or need assistance? Fill out the form below and our support team will get back to you as soon as possible. Please do not submit queries related to zone change.
         </p>
       </div>
 
