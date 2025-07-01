@@ -24,6 +24,7 @@ const zoneContacts = {
   ],
   "Muffadal Park": [
     { name: "Murtaza Motagam wala", number: "+91-7611105253" },
+    { name: "Hussain Lashker wala", number: "+91 9993337252" },
   ],
 };
 
